@@ -1,0 +1,2 @@
+DROP TABLE IF EXISTS f_song;
+DROP TABLE IF EXISTS f_artist;

@@ -1,0 +1,7 @@
+psycopg2
+pep8
+cqlsh
+nose
+tox
+pandas
+jupyter
