@@ -11,8 +11,9 @@ class DataFilter:
 		filtered_data['song'] = []
 		
 		for json in self.json_data:
-			filtered_data['artist'].append(Artist(
-				json['artist_name'], json['artist_location'], json['artist_latitude'], json['artist_longitude']))
+			print(json)
+			# filtered_data['artist'].append(Artist(
+			# 	json['artist_name'], json['artist_location'], json['artist_latitude'], json['artist_longitude']))
 
 		return filtered_data['artist']
 	
