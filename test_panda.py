@@ -10,6 +10,7 @@ file_finder = FileFinder(test_json_path, '*.json')
 data_loader = DataLoader(file_finder.return_file_names())
 panda_json = data_loader.create_json_from_files()
 print(panda_json.artist_id)
+print(panda_json.artist_name)
 data_filter = DataFilter(panda_json)
 
 print(data_filter.return_dicts_of_data())
