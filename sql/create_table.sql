@@ -1,9 +1,9 @@
 CREATE TABLE IF NOT EXISTS f_artist(
 	artist_id SERIAL,
 	artist_name TEXT,
-	location TEXT,
-	longtitude TEXT,
-	latitude TEXT,
+	artist_location TEXT,
+	artist_longitude TEXT,
+	artist_latitude TEXT,
 	PRIMARY KEY (artist_id)
 );
 
