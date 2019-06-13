@@ -1,8 +1,5 @@
 import pandas as pd
-from pandas.io.json import json_normalize
 import json
-from collections import defaultdict
-pd.set_option('display.max_columns', 30)
 
 class DataLoader:
 
@@ -21,6 +18,7 @@ class DataLoader:
 
 
 def fetch_json_data(filename):
+	
 		json_array = []
 		with open(filename, 'r') as f:
 			json_array.append(json.load(f))

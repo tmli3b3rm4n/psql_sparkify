@@ -4,19 +4,11 @@ class DataFilter:
 	def __init__(self, json_data):
 		self.json_data = json_data
 
-	def return_dicts_of_data(self):
+	# def return_dicts_of_data(self):
 
-		filtered_data = {}
-		filtered_data['artist'] = []
-		filtered_data['song'] = []
-		
-		for json in self.json_data:
-			print(json)
-			# filtered_data['artist'].append(Artist(
-			# 	json['artist_name'], json['artist_location'], json['artist_latitude'], json['artist_longitude']))
-
-		return filtered_data['artist']
-	
+	# 	filtered_data = {}
+	# 	filtered_data['artist'] = []
+	# 	filtered_data['song'] = []
 
 class Artist:
 
