@@ -15,3 +15,12 @@ CREATE TABLE IF NOT EXISTS f_song (
 	artist_id INT references f_artist(artist_id),
 	PRIMARY KEY (song_id)
 );
+
+CREATE TABLE IF NOT EXISTS f_app_user (
+	user_id SERIAL,
+	first_name TEXT,
+	last_name TEXT,
+	gender VARCHAR(1),
+	level TEXT,
+	PRIMARY KEY (user_id)
+);

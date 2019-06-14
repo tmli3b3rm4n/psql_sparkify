@@ -1,2 +1,3 @@
 DROP TABLE IF EXISTS f_song;
 DROP TABLE IF EXISTS f_artist;
+DROP TABLE IF EXISTS f_app_user;

@@ -6,7 +6,7 @@ class DataFilter:
 
 	def return_unique_dataframe_subset(self, columns, dup_index):
 		return (
-			self.panda_dataframe[columns].drop_duplicates(subset=dup_index, keep='first')
+			self.panda_dataframe[columns].drop_duplicates(subset=dup_index, keep='last')
 		)
 
 	
