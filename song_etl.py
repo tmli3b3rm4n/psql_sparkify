@@ -2,16 +2,15 @@ from lib.file_finder import FileFinder
 from lib.data_loader import DataLoader
 from lib.data_filter import DataFilter
 from lib.database_wrapper import DatabaseWrapper
-
 import os
 
-def main():
+def song_etl():
 
-	test_json_path = os.getcwd() + '/data/song_data/'
-	file_finder = FileFinder(test_json_path, '*.json')
+	song_json_path = os.getcwd() + '/data/song_data/'
+	file_finder = FileFinder(song_json_path, '*.json')
 	data_loader = DataLoader(file_finder.return_file_names())
-	panda_json = data_loader.create_json_from_files()
-	data_filter = DataFilter(panda_json)
+	song_dataframe = data_loader.create_json_from_files()
+	data_filter = DataFilter(song_dataframe)
 
 	artists = data_filter.return_unique_dataframe_subset(
 	    ['artist_name', 'artist_location', 'artist_longitude', 'artist_latitude'], 'artist_name')
@@ -27,5 +26,3 @@ def main():
 	database_wrapper.execute_batch_query(artist_query, list(artists.itertuples(index=False, name=None)))
 	database_wrapper.execute_batch_query(song_query, list(songs.itertuples(index=False, name=None)))
 
-if __name__ == '__main__':
-	main()
