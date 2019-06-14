@@ -8,21 +8,24 @@ class DataLoader:
 
 	def create_json_from_files(self):
 
-		json_array = []
+		aggregate_file_data = []
 
-		for f in self.matched_files:
-			json_array.extend(fetch_json_data(f))
-
-		return pd.DataFrame.from_records(json_array)
-
-
+		for file in self.matched_files:
+			aggregate_file_data.extend(fetch_json_data(file))
+			return pd.DataFrame.from_records(aggregate_file_data)
 
 def fetch_json_data(filename):
 	
-		json_array = []
+		json_file_data = []
 		with open(filename, 'r') as f:
-			json_array.append(json.load(f))
-
-		return json_array
+			for line in f:
+				try:
+					json_file_data.append(json.loads(line))
+				except Exception as e:
+					print('Unable to load line: line contents = {}'.format(line))
+					print(e)
+		
+		return json_file_data
+		
 	
 

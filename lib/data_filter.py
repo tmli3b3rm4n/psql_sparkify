@@ -9,9 +9,4 @@ class DataFilter:
 			self.panda_dataframe[columns].drop_duplicates(subset=dup_index, keep='first')
 		)
 
-	# def return_dicts_of_data(self):
-
-	# 	filtered_data = {}
-	# 	filtered_data['artist'] = []
-	# 	filtered_data['song'] = []
-
+	
