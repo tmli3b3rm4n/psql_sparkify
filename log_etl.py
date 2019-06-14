@@ -21,9 +21,7 @@ def log_etl():
 	)
 
 	print(timestamps.head(100))
-
 	user_query = 'insert into f_app_user (first_name, last_name, gender, level) values (%s, %s, %s, %s)'
-
 	database_wrapper = DatabaseWrapper()
 	database_wrapper.execute_batch_query(user_query, list(users.itertuples(index=False, name=None)))
 
