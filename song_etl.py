@@ -20,7 +20,9 @@ def song_etl():
 	)
 
 	artist_query = 'insert into f_artist (artist_name, artist_location, artist_longitude, artist_latitude) values (%s, %s, %s, %s)'
-	song_query = 'insert into f_song (song_name, year, length, artist_id) values (%s, %s, %s, (select artist_id from f_artist where 	artist_name=%s))'
+	song_query = 'insert into f_song (song_name, year, length, artist_id) values (%s, %s, %s, (select artist_id from f_artist where artist_name=%s))'
+
+	print(list(artists.itertuples()))
 
 	database_wrapper = DatabaseWrapper()
 	database_wrapper.execute_batch_query(artist_query, list(artists.itertuples(index=False, name=None)))

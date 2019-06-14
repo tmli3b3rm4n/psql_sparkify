@@ -16,6 +16,12 @@ def log_etl():
 		['firstName', 'lastName', 'gender', 'level', ], ['firstName', 'lastName']
 	)
 
+	timestamps = data_filter.return_unique_dataframe_subset(
+		['ts', 'firstName', 'lastName'], ['ts', 'firstName', 'lastName']
+	)
+
+	print(timestamps.head(100))
+
 	user_query = 'insert into f_app_user (first_name, last_name, gender, level) values (%s, %s, %s, %s)'
 
 	database_wrapper = DatabaseWrapper()

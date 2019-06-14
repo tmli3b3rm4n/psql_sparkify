@@ -12,7 +12,8 @@ class DataLoader:
 
 		for file in self.matched_files:
 			aggregate_file_data.extend(fetch_json_data(file))
-			return pd.DataFrame.from_records(aggregate_file_data)
+		
+		return pd.DataFrame.from_records(aggregate_file_data)
 
 def fetch_json_data(filename):
 	

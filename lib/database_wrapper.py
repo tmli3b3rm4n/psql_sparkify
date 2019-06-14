@@ -15,8 +15,9 @@ class DatabaseWrapper:
 		
 	def execute_batch_query(self, query, dataset):
 
-		# try:
+		try:
 			execute_batch(self.cursor, query, dataset)
-		# except:
-		# 	print('Unable to execute query')
-		# 	exit(1)
+		except Exception as e:
+			print('Unable to execute query')
+			print(e)
+			exit(1)

@@ -1,0 +1,71 @@
+[Pandas(Index=0, artist_name='Adam Ant', artist_location='London, England', artist_longitude=nan, artist_latitude=nan), Pandas(Index=1, artist_name='Planet P Project', artist_location='', artist_longitude=nan, artist_latitude=nan), Pandas(Index=2, artist_name='Gob', artist_location='', artist_longitude=nan, artist_latitude=nan), Pandas(Index=3, artist_name='Tweeterfriendly Music', artist_location='Burlington, Ontario, Canada', artist_longitude=nan, artist_latitude=nan), Pandas(Index=4, artist_name='JennyAnyKind', artist_location='North Carolina', artist_longitude=-80.01955, artist_latitude=35.21962), Pandas(Index=5, artist_name='The Box Tops', artist_location='Memphis, TN', artist_longitude=-90.04892, artist_latitude=35.14968), Pandas(Index=7, artist_name='Sonora Santanera', artist_location='', artist_longitude=nan, artist_latitude=nan), Pandas(Index=9, artist_name='Jeff And Sheri Easter', artist_location='', artist_longitude=nan, artist_latitude=nan), Pandas(Index=10, artist_name='Rated R', artist_location='Ohio', artist_longitude=nan, artist_latitude=nan), Pandas(Index=11, artist_name='Faye Adams', artist_location='Newark, NJ', artist_longitude=-74.17418, artist_latitude=40.73197), Pandas(Index=12, artist_name='Terry Callier', artist_location='Chicago', artist_longitude=-87.63241, artist_latitude=41.88415), Pandas(Index=13, artist_name='Billie Jo Spears', artist_location='Beaumont, TX', artist_longitude=-94.10158, artist_latitude=30.08615), Pandas(Index=14, artist_name='SUE THOMPSON', artist_location='Nevada, MO', artist_longitude=-94.35868, artist_latitude=37.83721), Pandas(Index=15, artist_name='Clp', artist_location='', artist_longitude=nan, artist_latitude=nan), Pandas(Index=16, artist_name="Mike Jones (Featuring CJ_ Mello & Lil' Bran)", artist_location='Houston, TX', artist_longitude=nan, artist_latitude=nan), Pandas(Index=17, artist_name='The Dillinger Escape Plan', artist_location='Morris Plains, NJ', artist_longitude=-74.47995, artist_latitude=40.82624), Pandas(Index=18, artist_name='The Shangri-Las', artist_location='Queens, NY', artist_longitude=-73.83168, artist_latitude=40.7038), Pandas(Index=19, artist_name='Five Bolt Main', artist_location='', artist_longitude=nan, artist_latitude=nan), Pandas(Index=20, artist_name='Tim Wilson', artist_location='Georgia', artist_longitude=-83.22295, artist_latitude=32.67828), Pandas(Index=21, artist_name='Sierra Maestra', artist_location='', artist_longitude=nan, artist_latitude=nan), Pandas(Index=22, artist_name='Elena', artist_location='Dubai UAE', artist_longitude=15.47491, artist_latitude=49.80388), Pandas(Index=23, artist_name='John Wesley', artist_location='Brandon', artist_longitude=-82.32547, artist_latitude=27.94017), Pandas(Index=24, artist_name='Willie Bobo', artist_location='New York, NY [Spanish Harlem]', artist_longitude=-73.94512, artist_latitude=40.79195), Pandas(Index=25, artist_name='Andy Andy', artist_location='', artist_longitude=nan, artist_latitude=nan), Pandas(Index=26, artist_name='lextrical', artist_location='', artist_longitude=nan, artist_latitude=nan), Pandas(Index=27, artist_name='Jimmy Wakely', artist_location='Mineola, AR', artist_longitude=-94.02978, artist_latitude=34.31109), Pandas(Index=28, artist_name='Richard Souther', artist_location='United States', artist_longitude=-95.84502, artist_latitude=37.16793), Pandas(Index=29, artist_name='Bob Azzam', artist_location='', artist_longitude=nan, artist_latitude=nan), Pandas(Index=30, artist_name='Wayne Watson', artist_location='Wisner, LA', artist_longitude=nan, artist_latitude=nan), Pandas(Index=31, artist_name='Alice Stuart', artist_location='Washington', artist_longitude=-77.029, artist_latitude=38.8991), Pandas(Index=32, artist_name='Lionel Richie', artist_location='Beverly Hills, CA', artist_longitude=nan, artist_latitude=nan), Pandas(Index=33, artist_name='Blue Rodeo', artist_location='Toronto, Ontario, Canada', artist_longitude=-79.38533, artist_latitude=43.64856), Pandas(Index=34, artist_name='Faiz Ali Faiz', artist_location='', artist_longitude=nan, artist_latitude=nan), Pandas(Index=35, artist_name='Tesla', artist_location='', artist_longitude=nan, artist_latitude=nan), Pandas(Index=36, artist_name='David Martin', artist_location='California - SF', artist_longitude=-122.42005, artist_latitude=37.77916), Pandas(Index=37, artist_name='Kenny G featuring Daryl Hall', artist_location='Seattle, Washington USA', artist_longitude=nan, artist_latitude=nan), Pandas(Index=38, artist_name='John Davis', artist_location='Pennsylvania', artist_longitude=-77.60454, artist_latitude=40.99471), Pandas(Index=39, artist_name='Backstreet Boys', artist_location='Orlando, FL', artist_longitude=-81.37739, artist_latitude=28.53823), Pandas(Index=40, artist_name='Eddie Calvert', artist_location='', artist_longitude=nan, artist_latitude=nan), Pandas(Index=41, artist_name='Tiny Tim', artist_location='New York, NY', artist_longitude=-74.00712, artist_latitude=40.71455), Pandas(Index=42, artist_name='Trafik', artist_location='Utah', artist_longitude=-111.54732, artist_latitude=39.49974), Pandas(Index=43, artist_name='Christos Dantis', artist_location='', artist_longitude=nan, artist_latitude=nan), Pandas(Index=44, artist_name='Nick Ingman;Gavyn Wright', artist_location='London, England', artist_longitude=-0.12714, artist_latitude=51.50632), Pandas(Index=45, artist_name='Casual', artist_location='California - LA', artist_longitude=nan, artist_latitude=nan), Pandas(Index=46, artist_name='Glad', artist_location='', artist_longitude=nan, artist_latitude=nan), Pandas(Index=47, artist_name='King Curtis', artist_location='Fort Worth, TX', artist_longitude=-97.32925, artist_latitude=32.74863), Pandas(Index=48, artist_name='Luna Orbit Project', artist_location='', artist_longitude=nan, artist_latitude=nan), Pandas(Index=49, artist_name='Lupe Fiasco', artist_location='Chicago, IL', artist_longitude=-87.63241, artist_latitude=41.88415), Pandas(Index=50, artist_name='Line Renaud', artist_location='', artist_longitude=nan, artist_latitude=nan), Pandas(Index=51, artist_name='Danilo Perez', artist_location='Panama', artist_longitude=-80.11278, artist_latitude=8.4177), Pandas(Index=52, artist_name='Gwen Stefani', artist_location='', artist_longitude=nan, artist_latitude=nan), Pandas(Index=53, artist_name='Marc Shaiman', artist_location='', artist_longitude=nan, artist_latitude=nan), Pandas(Index=54, artist_name='Steve Morse', artist_location='Hamilton, Ohio', artist_longitude=nan, artist_latitude=nan), Pandas(Index=55, artist_name='Wilks', artist_location='', artist_longitude=nan, artist_latitude=nan), Pandas(Index=56, artist_name='Bitter End', artist_location='Noci (BA)', artist_longitude=-41.9952, artist_latitude=-13.442), Pandas(Index=57, artist_name='Sophie B. Hawkins', artist_location='New York, NY [Manhattan]', artist_longitude=-73.96644, artist_latitude=40.79086), Pandas(Index=58, artist_name='40 Grit', artist_location='', artist_longitude=nan, artist_latitude=nan), Pandas(Index=59, artist_name='Bombay Rockers', artist_location='Denmark', artist_longitude=9.51695, artist_latitude=56.27609), Pandas(Index=60, artist_name='Los Manolos', artist_location='', artist_longitude=nan, artist_latitude=nan), Pandas(Index=61, artist_name='Montserrat Caballé;Placido Domingo;Vicente Sardinero;Judith Blegen;Sherrill Milnes;Georg Solti', artist_location='', artist_longitude=nan, artist_latitude=nan), Pandas(Index=62, artist_name='Steel Rain', artist_location='California - SF', artist_longitude=-122.42005, artist_latitude=37.77916), Pandas(Index=63, artist_name='Soul Mekanik', artist_location='', artist_longitude=nan, artist_latitude=nan), Pandas(Index=64, artist_name='Mitch Ryder', artist_location='Hamtramck, MI', artist_longitude=nan, artist_latitude=nan), Pandas(Index=65, artist_name='Blingtones', artist_location='', artist_longitude=nan, artist_latitude=nan), Pandas(Index=66, artist_name='Pucho & His Latin Soul Brothers', artist_location='', artist_longitude=nan, artist_latitude=nan), Pandas(Index=67, artist_name='Chase & Status', artist_location='', artist_longitude=nan, artist_latitude=nan), Pandas(Index=68, artist_name='Tom Petty', artist_location='Gainesville, FL', artist_longitude=nan, artist_latitude=nan), Pandas(Index=69, artist_name='Jinx', artist_location='Zagreb Croatia', artist_longitude=15.9676, artist_latitude=45.80726), Pandas(Index=70, artist_name='Gloriana', artist_location='Nashville, TN.', artist_longitude=-86.77836, artist_latitude=36.16778)]
+Unable to load line: line contents = 
+
+Expecting value: line 2 column 1 (char 1)
+Unable to load line: line contents = 
+
+Expecting value: line 2 column 1 (char 1)
+               ts firstName   lastName
+0   1541903636796  Anabelle    Simpson
+1   1541903770796  Anabelle    Simpson
+2   1541904034796  Anabelle    Simpson
+3   1541910841796      Lily      Burns
+4   1541910973796      Lily      Burns
+5   1541911006796    Joseph  Gutierrez
+6   1541930188796     Ryann      Smith
+7   1541930447796     Ryann      Smith
+8   1541930647796     Ryann      Smith
+9   1541930908796     Ryann      Smith
+10  1541931120796     Ryann      Smith
+11  1541932052796     Chloe     Cuevas
+12  1541932063796     Chloe     Cuevas
+13  1541932424796     Chloe     Cuevas
+14  1541932582796     Chloe     Cuevas
+15  1541932814796     Chloe     Cuevas
+16  1541933003796     Chloe     Cuevas
+17  1541933178796     Chloe     Cuevas
+18  1541933179796     Chloe     Cuevas
+19  1541933298796      None       None
+20  1541934031796      None       None
+21  1541934032796      None       None
+22  1541934168796     Chloe     Cuevas
+23  1541934891796     Chloe     Cuevas
+24  1541943439796     Chloe     Cuevas
+25  1541943682796     Chloe     Cuevas
+26  1541944080796  Mohammad  Rodriguez
+27  1541944343796  Mohammad  Rodriguez
+28  1541944702796  Mohammad  Rodriguez
+29  1541945130796    Cierra     Finley
+..            ...       ...        ...
+70  1541962316796      Ryan      Smith
+71  1541962416796     Rylan     George
+72  1541962486796      Ryan      Smith
+73  1541962633796      Ryan      Smith
+74  1541962656796      Ryan      Smith
+75  1541965304796     Tegan     Levine
+76  1541965305796     Tegan     Levine
+77  1541965525796     Tegan     Levine
+78  1541965733796     Tegan     Levine
+79  1541965947796     Tegan     Levine
+80  1541966183796     Tegan     Levine
+81  1541966358796     Tegan     Levine
+82  1541966589796     Tegan     Levine
+83  1541966762796     Tegan     Levine
+84  1541966932796     Tegan     Levine
+85  1541967202796     Tegan     Levine
+86  1541967355796     Tegan     Levine
+87  1541967558796     Tegan     Levine
+88  1541967723796     Tegan     Levine
+89  1541967940796     Tegan     Levine
+90  1541970568796     Molly     Taylor
+91  1541970828796     Molly     Taylor
+92  1541971049796     Molly     Taylor
+93  1541979540796      Ryan      Smith
+94  1541979748796      Ryan      Smith
+95  1542931645796     Kevin   Arellano
+96  1542931860796     Kevin   Arellano
+97  1542932064796     Kevin   Arellano
+98  1542932236796     Kevin   Arellano
+99  1542932445796     Kevin   Arellano
+
+[100 rows x 3 columns]
