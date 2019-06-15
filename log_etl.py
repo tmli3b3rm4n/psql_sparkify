@@ -2,6 +2,8 @@ from lib.file_finder import FileFinder
 from lib.data_loader import DataLoader
 from lib.data_filter import DataFilter
 from lib.database_wrapper import DatabaseWrapper
+from datetime import datetime
+
 import os
 
 def log_etl():
@@ -25,10 +27,17 @@ def log_etl():
 	)
 
 	timestamp_data_set = data_filter.return_unique_dataframe_subset(
-		['ts']
+		['ts', 'firstName', 'lastName']
 	)
 
-	print(timestamp_data_set.head(100))
+	timestamp_unpacked_dataset = list(timestamp_data_set.itertuples(name=None, index=False))
+	sample_timestamp = timestamp_unpacked_dataset[0]
+	print(sample_timestamp)
+	sample = get_timetuple(sample_timestamp[0])
+	sample[-1] = sample[-1] > 5
+	sample.extend(sample_timestamp)
+	print(sample)
+
 
 	# ancillary_artist_insert = 'insert into d_artist (artist_name) values (%s) on conflict (artist_name) do nothing'
 	# ancillary_song_insert = 'insert into d_song (song_name, artist_id) values (%s, (select artist_id from d_artist where artist_name=%s)) on conflict (song_name, artist_id) do nothing'
@@ -40,4 +49,11 @@ def log_etl():
 	# database_wrapper.execute_batch_query(ancillary_song_insert, list(log_song_set.itertuples(index=False, name=None)))
 
 
+def get_timetuple(timestamp):
+	return (list(datetime.fromtimestamp(int(timestamp // 1000)).timetuple()[0: 7]))
+	
+
+
 log_etl()
+
+
