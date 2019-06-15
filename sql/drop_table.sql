@@ -1,3 +1,4 @@
 DROP TABLE IF EXISTS d_song;
 DROP TABLE IF EXISTS d_artist;
 DROP TABLE IF EXISTS d_app_user;
+DROP TABLE IF EXISTS d_timestamp;

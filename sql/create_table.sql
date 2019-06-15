@@ -28,6 +28,19 @@ CREATE TABLE IF NOT EXISTS d_app_user (
 	UNIQUE (first_name, last_name)
 );
 
+CREATE TABLE IF NOT EXISTS d_timestamp (
+	timestamp_id SERIAL,
+	second INT,
+	minute INT,
+	hour INT,
+	day INT,
+	month INT,
+	year INT,
+	weekday BOOL,
+	timestamp BIGINT,
+	user_id INT REFERENCES d_app_user(user_id)
+);
+
 -- CREATE TABLE IF NOT EXISTS d_timestamp (
 
 -- )

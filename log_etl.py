@@ -30,28 +30,29 @@ def log_etl():
 		['ts', 'firstName', 'lastName']
 	)
 
-	timestamp_unpacked_dataset = list(timestamp_data_set.itertuples(name=None, index=False))
-	sample_timestamp = timestamp_unpacked_dataset[0]
-	print(sample_timestamp)
-	sample = get_timetuple(sample_timestamp[0])
-	sample[-1] = sample[-1] > 5
-	sample.extend(sample_timestamp)
-	print(sample)
+	timestamp_unpacked_dataset = list(
+		map(
+			unpack_timestamp, timestamp_data_set.itertuples(name=None, index=False)
+		)
+	)
+
+	ancillary_artist_insert = 'insert into d_artist (artist_name) values (%s) on conflict (artist_name) do nothing'
+	ancillary_song_insert = 'insert into d_song (song_name, artist_id) values (%s, (select artist_id from d_artist where artist_name=%s)) on conflict (song_name, artist_id) do nothing'
+	user_query = 'insert into d_app_user (first_name, last_name, gender, level) values (%s, %s, %s, %s) on conflict (first_name, last_name) do nothing'
+	database_wrapper = DatabaseWrapper()
+
+	database_wrapper.execute_batch_query(user_query, list(users.itertuples(index=False, name=None)))
+	database_wrapper.execute_batch_query(ancillary_artist_insert, list(log_artist_set.itertuples(index=False, name=None)))
+	database_wrapper.execute_batch_query(ancillary_song_insert, list(log_song_set.itertuples(index=False, name=None)))
 
 
-	# ancillary_artist_insert = 'insert into d_artist (artist_name) values (%s) on conflict (artist_name) do nothing'
-	# ancillary_song_insert = 'insert into d_song (song_name, artist_id) values (%s, (select artist_id from d_artist where artist_name=%s)) on conflict (song_name, artist_id) do nothing'
-	# user_query = 'insert into d_app_user (first_name, last_name, gender, level) values (%s, %s, %s, %s)'
-	# database_wrapper = DatabaseWrapper()
-
-	# database_wrapper.execute_batch_query(user_query, list(users.itertuples(index=False, name=None)))
-	# database_wrapper.execute_batch_query(ancillary_artist_insert, list(log_artist_set.itertuples(index=False, name=None)))
-	# database_wrapper.execute_batch_query(ancillary_song_insert, list(log_song_set.itertuples(index=False, name=None)))
+def unpack_timestamp(row):
+	new_row = list(datetime.fromtimestamp(int(row[0] // 1000)).timetuple()[0: 7])
+	new_row[-1] = new_row[-1] > 5
+	new_row.extend(row)
+	return tuple(new_row)
 
 
-def get_timetuple(timestamp):
-	return (list(datetime.fromtimestamp(int(timestamp // 1000)).timetuple()[0: 7]))
-	
 
 
 log_etl()
