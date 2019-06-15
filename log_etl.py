@@ -16,17 +16,28 @@ def log_etl():
 		['firstName', 'lastName', 'gender', 'level', ], ['firstName', 'lastName']
 	)
 
-	artists_from_log_db = data_filter.return_unique_dataframe_subset(
+	log_artist_set = data_filter.return_unique_dataframe_subset(
 		['artist'], 'artist'
 	)
 
-	ancillary_artist_insert = 'insert into d_artist (artist_name) values (%s) ON CONFLICT (artist_name) DO NOTHING'
-	print(artists_from_log_db.head(100))
-	
+	log_song_set = data_filter.return_unique_dataframe_subset(
+		['song', 'artist'], ['song', 'artist']
+	)
+
+	timestamp_data_set = data_filter.return_unique_dataframe_subset(
+		['ts']
+	)
+
+	print(timestamp_data_set.head(100))
+
+	# ancillary_artist_insert = 'insert into d_artist (artist_name) values (%s) on conflict (artist_name) do nothing'
+	# ancillary_song_insert = 'insert into d_song (song_name, artist_id) values (%s, (select artist_id from d_artist where artist_name=%s)) on conflict (song_name, artist_id) do nothing'
 	# user_query = 'insert into d_app_user (first_name, last_name, gender, level) values (%s, %s, %s, %s)'
-	database_wrapper = DatabaseWrapper()
-	# # database_wrapper.execute_batch_query(user_query, list(users.itertuples(index=False, name=None)))
-	database_wrapper.execute_batch_query(ancillary_artist_insert, list(artists_from_log_db.itertuples(index=False, name=None)))
+	# database_wrapper = DatabaseWrapper()
+
+	# database_wrapper.execute_batch_query(user_query, list(users.itertuples(index=False, name=None)))
+	# database_wrapper.execute_batch_query(ancillary_artist_insert, list(log_artist_set.itertuples(index=False, name=None)))
+	# database_wrapper.execute_batch_query(ancillary_song_insert, list(log_song_set.itertuples(index=False, name=None)))
 
 
 log_etl()

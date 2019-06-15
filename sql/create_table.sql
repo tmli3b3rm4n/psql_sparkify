@@ -15,7 +15,7 @@ CREATE TABLE IF NOT EXISTS d_song (
 	length INT,
 	artist_id INT references d_artist(artist_id),
 	PRIMARY KEY (song_id),
-	UNIQUE (song_name, year, length)
+	UNIQUE (song_name, artist_id)
 );
 
 CREATE TABLE IF NOT EXISTS d_app_user (
