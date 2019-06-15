@@ -16,12 +16,17 @@ def log_etl():
 		['firstName', 'lastName', 'gender', 'level', ], ['firstName', 'lastName']
 	)
 
-	timestamps = data_filter.return_unique_dataframe_subset(
-		['ts', 'firstName', 'lastName'], ['ts', 'firstName', 'lastName']
+	artists_from_log_db = data_filter.return_unique_dataframe_subset(
+		['artist'], 'artist'
 	)
 
-	print(timestamps.head(100))
-	user_query = 'insert into f_app_user (first_name, last_name, gender, level) values (%s, %s, %s, %s)'
+	ancillary_artist_insert = 'insert into d_artist (artist_name) values (%s) ON CONFLICT (artist_name) DO NOTHING'
+	print(artists_from_log_db.head(100))
+	
+	# user_query = 'insert into d_app_user (first_name, last_name, gender, level) values (%s, %s, %s, %s)'
 	database_wrapper = DatabaseWrapper()
-	database_wrapper.execute_batch_query(user_query, list(users.itertuples(index=False, name=None)))
+	# # database_wrapper.execute_batch_query(user_query, list(users.itertuples(index=False, name=None)))
+	database_wrapper.execute_batch_query(ancillary_artist_insert, list(artists_from_log_db.itertuples(index=False, name=None)))
 
+
+log_etl()
