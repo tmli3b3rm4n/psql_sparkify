@@ -22,6 +22,20 @@ def song_etl():
 	artist_query = 'insert into d_artist (artist_name, artist_location, artist_longitude, artist_latitude) values (%s, %s, %s, %s) on conflict (artist_name) do nothing'
 	song_query = 'insert into d_song (song_name, year, length, artist_id) values (%s, %s, %s, (select artist_id from d_artist where artist_name=%s))on conflict (song_name, artist_id) do nothing'
 
+	timestamp_query = 'insert into d_timestamp (year, month'
+	# year, month, day, hour, minute, second, weekday, timestamp, first_name, last_name
+	# CREATE TABLE IF NOT EXISTS d_timestamp(
+  #           timestamp_id SERIAL,
+  #           second INT,
+  #           minute INT,
+  #           hour INT,
+  #           day INT,
+  #           month INT,
+  #           year INT,
+  #           weekday BOOL,
+  #           timestamp BIGINT,
+  #           user_id INT REFERENCES d_app_user(user_id)
+  #       )
 	database_wrapper = DatabaseWrapper()
 	database_wrapper.execute_batch_query(artist_query, list(artists.itertuples(index=False, name=None)))
 	database_wrapper.execute_batch_query(song_query, list(songs.itertuples(index=False, name=None)))
