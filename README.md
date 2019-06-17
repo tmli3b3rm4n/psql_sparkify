@@ -19,7 +19,7 @@ Music company sparkify generate JSON logs that cover how songs are played in the
   
 * Load the virtual environment and run pip install -r requirements.txt
   
-* Run ./etl_exec.sh. This script will drop the existing tables in the schema and then recreate them. From there the python application will populate the tables with the data from the data/ directory. 
+* Run ./etl_exec.sh. This script will drop the existing tables in the DB and then recreate them. From there the python application will execute the ETL pipeline on the data in the data directory. 
 
 #### Additional Steps
 
