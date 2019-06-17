@@ -6,38 +6,6 @@ from datetime import datetime
 
 import os
 
-# -- --
-# -- {
-#     -- "artist": "Des'ree",
-#     -- "auth": "Logged In",
-#     -- "firstName": "Kaylee",
-#     -- "gender": "F",
-#     -- "itemInSession": 1,
-#     -- "lastName": "Summers",
-#     -- "length": 246.30812,
-#     -- "level": "free",
-#     -- "location": "Phoenix-Mesa-Scottsdale, AZ",
-#     -- "method": "PUT",
-#     -- "page": "NextSong",
-#     -- "registration": 1540344794796,
-#     -- "sessionId": 139,
-#     -- "song": "You Gotta Be",
-#     -- "status": 200,
-#     -- "ts": 1541106106796,
-#     -- "userId": "8"
-#     - -}
-
-# select
-# da.user_id,
-# da.level,
-# ds.song_id
-# from
-# d_app_user da,
-# d_song ds
-# where
-# da.first_name = 'Kaylee' and
-# da.last_name = 'Summers'
-
 def log_etl():
 
 	log_json_path = os.getcwd() + '/data/log_data/'
@@ -65,6 +33,12 @@ def log_etl():
 	timestamp_unpacked_dataset = map(
 		unpack_timestamp, timestamp_data_set.itertuples(name=None, index=False)
 	)
+
+	songplay_dataset = data_filter.return_unique_dataframe_subset(
+		['ts', 'firstName', 'lastName', 'level', 'song', 'artist', 'artist', 'sessionId']
+	)
+
+	print(songplay_dataset.head(50))
 	
 	ancillary_artist_insert = 'insert into d_artist (artist_name) values (%s) on conflict (artist_name) do nothing'
 
@@ -74,11 +48,13 @@ def log_etl():
 
 	timestamp_query = 'insert into d_timestamp (year, month, day, hour, minute, second, weekday, timestamp, user_id) values (%s, %s, %s, %s, %s, %s, %s, %s, (select user_id from d_app_user where first_name = %s and last_name = %s))'
 
-	database_wrapper = DatabaseWrapper()
-	database_wrapper.execute_batch_query(user_query, list(users.itertuples(index=False, name=None)))
-	database_wrapper.execute_batch_query(ancillary_artist_insert, list(log_artist_set.itertuples(index=False, name=None)))
-	database_wrapper.execute_batch_query(ancillary_song_insert, list(log_song_set.itertuples(index=False, name=None)))
-	database_wrapper.execute_batch_query(timestamp_query, list(timestamp_unpacked_dataset))
+	songplay_query = 'insert into f_songplay (start_time,user_id, level,song_id,artist_id,session_id) values (%s, (select user_id from d_app_user where first_name = %s and last_name = %s), %s, (select song_id from d_song where song_name = %s and artist_id = (select artist_id from d_artist where artist_name = %s)),(select artist_id from d_artist where artist_name= %s),%s)'
+
+	# database_wrapper = DatabaseWrapper()
+	# database_wrapper.execute_batch_query(user_query, list(users.itertuples(index=False, name=None)))
+	# database_wrapper.execute_batch_query(ancillary_artist_insert, list(log_artist_set.itertuples(index=False, name=None)))
+	# database_wrapper.execute_batch_query(ancillary_song_insert, list(log_song_set.itertuples(index=False, name=None)))
+	# database_wrapper.execute_batch_query(timestamp_query, list(timestamp_unpacked_dataset))
 
 def unpack_timestamp(row):
 	new_row = list(datetime.fromtimestamp(int(row[0] // 1000)).timetuple()[0: 7])
@@ -87,4 +63,4 @@ def unpack_timestamp(row):
 	return tuple(new_row)
 
 
-
+log_etl()

@@ -13,8 +13,8 @@ values (
 	last_name = 'Summers'),
 	'FREE',
 	(select song_id from d_song where song_name = 'You Gotta Be' and artist_id = (
-	select artist_id from d_artist where artist_name = 'Des''ree')),
-	(select artist_id from d_artist where artist_name= 'Des''ree'),
+	select artist_id from d_artist where artist_name = 'Des`ree')),
+	(select artist_id from d_artist where artist_name= 'Des`ree'),
 	251
 );
 
