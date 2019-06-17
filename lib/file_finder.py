@@ -7,7 +7,6 @@ class FileFinder():
 
 		self.start_directory = start_directory
 		self.file_type = file_type
-		self.matched_files = []
 
 	def return_file_names(self):
 
