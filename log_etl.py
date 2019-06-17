@@ -37,9 +37,7 @@ def log_etl():
 	songplay_dataset = data_filter.return_unique_dataframe_subset(
 		['ts', 'firstName', 'lastName', 'level', 'song', 'artist', 'artist', 'sessionId']
 	)
-
-	print(songplay_dataset.head(50))
-	
+		
 	ancillary_artist_insert = 'insert into d_artist (artist_name) values (%s) on conflict (artist_name) do nothing'
 
 	ancillary_song_insert = 'insert into d_song (song_name, artist_id) values (%s, (select artist_id from d_artist where artist_name=%s)) on conflict (song_name, artist_id) do nothing'
@@ -50,17 +48,15 @@ def log_etl():
 
 	songplay_query = 'insert into f_songplay (start_time,user_id, level,song_id,artist_id,session_id) values (%s, (select user_id from d_app_user where first_name = %s and last_name = %s), %s, (select song_id from d_song where song_name = %s and artist_id = (select artist_id from d_artist where artist_name = %s)),(select artist_id from d_artist where artist_name= %s),%s)'
 
-	# database_wrapper = DatabaseWrapper()
-	# database_wrapper.execute_batch_query(user_query, list(users.itertuples(index=False, name=None)))
-	# database_wrapper.execute_batch_query(ancillary_artist_insert, list(log_artist_set.itertuples(index=False, name=None)))
-	# database_wrapper.execute_batch_query(ancillary_song_insert, list(log_song_set.itertuples(index=False, name=None)))
-	# database_wrapper.execute_batch_query(timestamp_query, list(timestamp_unpacked_dataset))
+	database_wrapper = DatabaseWrapper()
+	database_wrapper.execute_batch_query(user_query, list(users.itertuples(index=False, name=None)))
+	database_wrapper.execute_batch_query(ancillary_artist_insert, list(log_artist_set.itertuples(index=False, name=None)))
+	database_wrapper.execute_batch_query(ancillary_song_insert, list(log_song_set.itertuples(index=False, name=None)))
+	database_wrapper.execute_batch_query(timestamp_query, list(timestamp_unpacked_dataset))
+	database_wrapper.execute_batch_query(songplay_query, list(songplay_dataset.itertuples(index=False, name=None)))
 
 def unpack_timestamp(row):
 	new_row = list(datetime.fromtimestamp(int(row[0] // 1000)).timetuple()[0: 7])
 	new_row[-1] = new_row[-1] > 5
 	new_row.extend(row)
 	return tuple(new_row)
-
-
-log_etl()
