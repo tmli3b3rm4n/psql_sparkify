@@ -2,6 +2,7 @@ from lib.file_finder import FileFinder
 from lib.data_loader import DataLoader
 from lib.data_filter import DataFilter
 from lib.database_wrapper import DatabaseWrapper
+from lib.query import query
 import os
 
 def song_etl():
@@ -12,17 +13,24 @@ def song_etl():
 	song_dataframe = data_loader.create_json_from_files()
 	data_filter = DataFilter(song_dataframe)
 
-	artists = data_filter.return_unique_dataframe_subset(
-	    ['artist_name', 'artist_location', 'artist_longitude', 'artist_latitude'], 'artist_name')
-
-	songs = data_filter.return_unique_dataframe_subset(
-		['title', 'year', 'duration', 'artist_name'], 'title'
+	artist_dataset = data_filter.return_unique_dataframe_subset(
+	  ['artist_name', 'artist_location', 'artist_longitude', 'artist_latitude'], 'artist_name'
 	)
 
-	artist_query = 'insert into d_artist (artist_name, artist_location, artist_longitude, artist_latitude) values (%s, %s, %s, %s) on conflict (artist_name) do nothing'
-	song_query = 'insert into d_song (song_name, year, length, artist_id) values (%s, %s, %s, (select artist_id from d_artist where artist_name=%s))on conflict (song_name, artist_id) do nothing'
+	song_dataset = data_filter.return_unique_dataframe_subset(
+		['title', 'year', 'duration', 'artist_name'], 
+		'title'
+	)
 
 	database_wrapper = DatabaseWrapper()
-	database_wrapper.execute_batch_query(artist_query, list(artists.itertuples(index=False, name=None)))
-	database_wrapper.execute_batch_query(song_query, list(songs.itertuples(index=False, name=None)))
+
+	database_wrapper.execute_batch_query(
+		query['artist_insert'], 
+		list(artist_dataset.itertuples(index=False, name=None))
+	)
+
+	database_wrapper.execute_batch_query(
+		query['song_insert'], 
+		list(song_dataset.itertuples(index=False, name=None))
+	)
 
