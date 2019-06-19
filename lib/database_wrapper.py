@@ -21,3 +21,17 @@ class DatabaseWrapper:
 			print('Unable to execute query')
 			print(e)
 			exit(1)
+
+	def execute_single_query(self, query, data = None, action='read'):
+		
+		try:
+			if action == 'read' and not data:
+				return self.cur.execute(query)
+			else:
+				self.cur.execute(query, data)
+		except Exception as e:
+			print('Unable to execute query')
+			print(e)
+			exit(1)
+
+
