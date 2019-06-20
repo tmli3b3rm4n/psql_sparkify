@@ -14,12 +14,13 @@ def song_etl():
 	data_filter = DataFilter(song_dataframe)
 
 	artist_dataset = data_filter.return_unique_dataframe_subset(
-	  ['artist_name', 'artist_location', 'artist_longitude', 'artist_latitude'], 'artist_name'
+	  ['artist_id', 'artist_name', 'artist_location', 'artist_longitude', 'artist_latitude'], 
+		['artist_id', 'artist_name']
 	)
 
 	song_dataset = data_filter.return_unique_dataframe_subset(
-		['title', 'year', 'duration', 'artist_name'], 
-		'title'
+		['song_id', 'title', 'year', 'duration', 'artist_name'], 
+		['song_id', 'title']
 	)
 
 	database_wrapper = DatabaseWrapper()
@@ -34,3 +35,4 @@ def song_etl():
 		list(song_dataset.itertuples(index=False, name=None))
 	)
 
+song_etl()

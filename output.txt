@@ -1,0 +1,10 @@
+Unable to execute query
+relation "d_song" does not exist
+LINE 1: insert into d_song (song_id, song_name, year, length, artist...
+                    ^
+
+Unable to execute query
+relation "d_song" does not exist
+LINE 1: insert into d_song (song_id, song_name, year, length, artist...
+                    ^
+

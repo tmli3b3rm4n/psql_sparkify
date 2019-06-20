@@ -1,21 +1,23 @@
 CREATE TABLE IF NOT EXISTS d_artist(
-	artist_id SERIAL,
-	artist_name TEXT,
+	artist_id TEXT NOT NULL,
+	artist_name TEXT NOT NULL,
 	artist_location TEXT,
-	artist_longitude TEXT,
-	artist_latitude TEXT,
-	PRIMARY KEY (artist_id),
-	UNIQUE (artist_name)
+	artist_longitude NUMERIC,
+	artist_latitude NUMERIC,
+	CONSTRAINT d_artist_pk PRIMARY KEY (artist_id, artist_name),
+	UNIQUE(artist_id),
+	UNIQUE(artist_name)
 );
 
 CREATE TABLE IF NOT EXISTS d_song (
-	song_id SERIAL, 
-	song_name TEXT,
+	song_id TEXT NOT NULL, 
+	song_name TEXT NOT NULL,
 	year INT,
 	length INT,
-	artist_id INT references d_artist(artist_id),
-	PRIMARY KEY (song_id),
-	UNIQUE (song_name, artist_id)
+	artist_id TEXT references d_artist(artist_id),
+	CONSTRAINT d_song_pk PRIMARY KEY (song_id, song_name),
+	UNIQUE (song_id, song_name)
+
 );
 
 CREATE TABLE IF NOT EXISTS d_app_user (

@@ -6,7 +6,7 @@ class DatabaseWrapper:
 	def __init__(self):
 
 		try:
-			self.conn = psycopg2.connect('dbname=sparkifydb user=student')
+			self.conn = psycopg2.connect('dbname=sparkifydb user=danielwork')
 			self.conn.autocommit=True
 			self.cursor = self.conn.cursor()
 		except:

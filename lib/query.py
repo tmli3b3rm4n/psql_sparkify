@@ -14,6 +14,6 @@ query['songplay_insert'] = 'insert into f_songplay (start_time,user_id, level,so
 
 # song dataset queries 
 
-query['artist_insert'] = 'insert into d_artist (artist_name, artist_location, artist_longitude, artist_latitude) values (%s, %s, %s, %s) on conflict (artist_name) do nothing'
+query['artist_insert'] = 'insert into d_artist (artist_id, artist_name, artist_location, artist_longitude, artist_latitude) values (%s, %s, %s, %s, %s) on conflict (artist_id, artist_name) do nothing'
 
-query['song_insert'] = 'insert into d_song (song_name, year, length, artist_id) values (%s, %s, %s, (select artist_id from d_artist where artist_name=%s))on conflict (song_name, artist_id) do nothing'
+query['song_insert'] = 'insert into d_song (song_id, song_name, year, length, artist_id) values (%s, %s, %s, %s, (select artist_id from d_artist where artist_name=%s))on conflict (song_name, song_id) do nothing'
