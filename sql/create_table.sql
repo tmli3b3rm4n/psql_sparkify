@@ -20,16 +20,15 @@ CREATE TABLE IF NOT EXISTS d_song (
 	UNIQUE (song_id, song_name)
 );
 
--- CREATE TABLE IF NOT EXISTS d_app_user (
--- 	user_key SERIAL,
--- 	user_id SERIAL,
--- 	first_name TEXT,
--- 	last_name TEXT,
--- 	gender VARCHAR(1),
--- 	level TEXT,
--- 	PRIMARY KEY (user_key),
--- 	UNIQUE (first_name, last_name)
--- );
+CREATE TABLE IF NOT EXISTS d_app_user (
+	user_key SERIAL,
+	first_name TEXT,
+	last_name TEXT,
+	gender VARCHAR(1),
+	level TEXT,
+	PRIMARY KEY (user_key),
+	UNIQUE (first_name, last_name)
+);
 
 -- CREATE TABLE IF NOT EXISTS d_timestamp (
 -- 	timestamp_key SERIAL,

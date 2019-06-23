@@ -18,23 +18,13 @@ def log_etl():
 		['firstName', 'lastName']
 	)
 
-	log_artist_set = data_filter.return_unique_dataframe_subset(
-		['artist'], 
-		'artist'
-	)
+	# timestamp_data_set = data_filter.return_unique_dataframe_subset(
+	# 	['ts', 'firstName', 'lastName']
+	# )
 
-	log_song_set = data_filter.return_unique_dataframe_subset(
-		['song', 'artist'], 
-		['song', 'artist']
-	)
-
-	timestamp_data_set = data_filter.return_unique_dataframe_subset(
-		['ts', 'firstName', 'lastName']
-	)
-
-	songplay_dataset = data_filter.return_unique_dataframe_subset(
-		['ts', 'firstName', 'lastName', 'level', 'song', 'artist', 'artist', 'sessionId']
-	)
+	# songplay_dataset = data_filter.return_unique_dataframe_subset(
+	# 	['ts', 'firstName', 'lastName', 'level', 'song', 'artist', 'artist', 'sessionId']
+	# )
 	
 	database_wrapper = DatabaseWrapper()
 
@@ -43,27 +33,17 @@ def log_etl():
 		list(user_set.itertuples(index=False, name=None))
 	)
 	
-	database_wrapper.execute_batch_query(
-		query['ancillary_artist_insert'], 
-		list(log_artist_set.itertuples(index=False, name=None))
-	)
+	# database_wrapper.execute_batch_query(
+	# 	query['timestamp_insert'], 
+	# 	list(
+	# 		map(unpack_timestamp, timestamp_data_set.itertuples(name=None, index=False))
+	# 	)
+	# )
 	
-	database_wrapper.execute_batch_query(
-		query['ancillary_song_insert'], 
-		list(log_song_set.itertuples(index=False, name=None))
-	)
-	
-	database_wrapper.execute_batch_query(
-		query['timestamp_insert'], 
-		list(
-			map(unpack_timestamp, timestamp_data_set.itertuples(name=None, index=False))
-		)
-	)
-	
-	database_wrapper.execute_batch_query(
-		query['songplay_insert'], 
-		list(songplay_dataset.itertuples(index=False, name=None))
-	)
+	# database_wrapper.execute_batch_query(
+	# 	query['songplay_insert'], 
+	# 	list(songplay_dataset.itertuples(index=False, name=None))
+	# )
 
 def unpack_timestamp(row):
 	new_row = list(datetime.fromtimestamp(int(row[0] // 1000)).timetuple()[0: 7])
