@@ -2,7 +2,7 @@ query = {}
 
 # log dataset queries
 
-query['user_insert'] = 'insert into d_app_user (first_name, last_name, gender, level) values (%s, %s, %s, %s) on conflict (first_name, last_name) do nothing'
+query['user_insert'] = 'insert into d_app_user (first_name, last_name, gender, level) values (%s, %s, %s, %s) on conflict (first_name, last_name) DO UPDATE SET level=EXCLUDED.level'
 
 query['timestamp_insert'] = 'insert into d_timestamp (year, month, day, hour, minute, second, weekday, timestamp, user_key) values (%s, %s, %s, %s, %s, %s, %s, %s, (select user_key from d_app_user where first_name = %s and last_name = %s))'
 

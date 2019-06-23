@@ -32,25 +32,25 @@ CREATE TABLE IF NOT EXISTS d_app_user (
 
 CREATE TABLE IF NOT EXISTS d_timestamp (
 	timestamp_key SERIAL,
-	second INT,
-	minute INT,
-	hour INT,
-	day INT,
-	month INT,
-	year INT,
-	weekday BOOL,
-	timestamp BIGINT,
+	second INT NOT NULL,
+	minute INT NOT NULL,
+	hour INT NOT NULL,
+	day INT NOT NULL,
+	month INT NOT NULL,
+	year INT NOT NULL,
+	weekday BOOL NOT NULL,
+	timestamp BIGINT NOT NULL,
 	user_key INT REFERENCES d_app_user(user_key),
 	PRIMARY KEY (timestamp_key)
 );
 
 CREATE TABLE IF NOT EXISTS f_songplay (
 	songplay_key SERIAL,
-	start_time BIGINT,
+	start_time BIGINT NOT NULl,
 	user_key INT REFERENCES d_app_user(user_key),
-	level TEXT,
+	level TEXT NOT NULL,
 	song_key INT REFERENCES d_song(song_key),
 	artist_key INT REFERENCES d_artist(artist_key),
-	session_id INT,
+	session_id INT NOT NULL,
 	PRIMARY KEY (songplay_key)
 );
