@@ -18,9 +18,9 @@ def log_etl():
 		['firstName', 'lastName']
 	)
 
-	# timestamp_data_set = data_filter.return_unique_dataframe_subset(
-	# 	['ts', 'firstName', 'lastName']
-	# )
+	timestamp_data_set = data_filter.return_unique_dataframe_subset(
+		['ts', 'firstName', 'lastName']
+	)
 
 	# songplay_dataset = data_filter.return_unique_dataframe_subset(
 	# 	['ts', 'firstName', 'lastName', 'level', 'song', 'artist', 'artist', 'sessionId']
@@ -33,12 +33,12 @@ def log_etl():
 		list(user_set.itertuples(index=False, name=None))
 	)
 	
-	# database_wrapper.execute_batch_query(
-	# 	query['timestamp_insert'], 
-	# 	list(
-	# 		map(unpack_timestamp, timestamp_data_set.itertuples(name=None, index=False))
-	# 	)
-	# )
+	database_wrapper.execute_batch_query(
+		query['timestamp_insert'], 
+		list(
+			map(unpack_timestamp, timestamp_data_set.itertuples(name=None, index=False))
+		)
+	)
 	
 	# database_wrapper.execute_batch_query(
 	# 	query['songplay_insert'], 

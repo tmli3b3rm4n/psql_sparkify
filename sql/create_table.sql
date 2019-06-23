@@ -30,19 +30,19 @@ CREATE TABLE IF NOT EXISTS d_app_user (
 	UNIQUE (first_name, last_name)
 );
 
--- CREATE TABLE IF NOT EXISTS d_timestamp (
--- 	timestamp_key SERIAL,
--- 	second INT,
--- 	minute INT,
--- 	hour INT,
--- 	day INT,
--- 	month INT,
--- 	year INT,
--- 	weekday BOOL,
--- 	timestamp BIGINT,
--- 	user_id INT REFERENCES d_app_user(user_id),
--- 	PRIMARY KEY (timestamp_key)
--- );
+CREATE TABLE IF NOT EXISTS d_timestamp (
+	timestamp_key SERIAL,
+	second INT,
+	minute INT,
+	hour INT,
+	day INT,
+	month INT,
+	year INT,
+	weekday BOOL,
+	timestamp BIGINT,
+	user_key INT REFERENCES d_app_user(user_key),
+	PRIMARY KEY (timestamp_key)
+);
 
 -- CREATE TABLE IF NOT EXISTS f_songplay (
 -- 	songplay_key SERIAL,
