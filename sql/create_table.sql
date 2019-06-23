@@ -44,13 +44,13 @@ CREATE TABLE IF NOT EXISTS d_timestamp (
 	PRIMARY KEY (timestamp_key)
 );
 
--- CREATE TABLE IF NOT EXISTS f_songplay (
--- 	songplay_key SERIAL,
--- 	start_time BIGINT,
--- 	user_id INT REFERENCES d_app_user(user_id),
--- 	level TEXT,
--- 	song_id INT REFERENCES d_song(song_id),
--- 	artist_id INT REFERENCES d_artist(artist_id),
--- 	session_id INT,
--- 	PRIMARY KEY (songplay_key)
--- );
+CREATE TABLE IF NOT EXISTS f_songplay (
+	songplay_key SERIAL,
+	start_time BIGINT,
+	user_key INT REFERENCES d_app_user(user_key),
+	level TEXT,
+	song_key INT REFERENCES d_song(song_key),
+	artist_key INT REFERENCES d_artist(artist_key),
+	session_id INT,
+	PRIMARY KEY (songplay_key)
+);

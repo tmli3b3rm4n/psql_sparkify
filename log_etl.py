@@ -22,9 +22,9 @@ def log_etl():
 		['ts', 'firstName', 'lastName']
 	)
 
-	# songplay_dataset = data_filter.return_unique_dataframe_subset(
-	# 	['ts', 'firstName', 'lastName', 'level', 'song', 'artist', 'artist', 'sessionId']
-	# )
+	songplay_dataset = data_filter.return_unique_dataframe_subset(
+		['ts', 'firstName', 'lastName', 'level', 'song', 'artist', 'artist', 'sessionId']
+	)
 	
 	database_wrapper = DatabaseWrapper()
 
@@ -40,10 +40,10 @@ def log_etl():
 		)
 	)
 	
-	# database_wrapper.execute_batch_query(
-	# 	query['songplay_insert'], 
-	# 	list(songplay_dataset.itertuples(index=False, name=None))
-	# )
+	database_wrapper.execute_batch_query(
+		query['songplay_insert'], 
+		list(songplay_dataset.itertuples(index=False, name=None))
+	)
 
 def unpack_timestamp(row):
 	new_row = list(datetime.fromtimestamp(int(row[0] // 1000)).timetuple()[0: 7])
