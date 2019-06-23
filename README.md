@@ -25,14 +25,14 @@ Music company sparkify generate JSON logs that cover how songs are played in the
 
 The majority of the songs played by users are missing from the songplay json files. 
 
-As a result joining the song table on the song featured in the song table from the songplay dataset produces very few results. 
+As a result joining the songplay table on the song table via the song name produces very few results as the song table does not cover the songs actually played by users. 
 
 To resolve this the following actions could be required:
 
 * Gather an extensive dataset of songs and artists so songs played by users can be joined with this dataset
 * Table denormalization. Accept that the song and artist dataset is incomplete and insert the song and artist name directly into the table
 
-Table denormalization would be the easiest and most straightforward approach and would also reduce query complexity. 
+Table denormalization would be the easiest and most straightforward approach and would also reduce query complexity as joins would not be required on the artist and song dataset. 
 
 #### Additional Steps
 
