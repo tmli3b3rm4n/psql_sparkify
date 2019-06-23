@@ -21,6 +21,19 @@ Music company sparkify generate JSON logs that cover how songs are played in the
   
 * Run ./etl_exec.sh. This script will drop the existing tables in the DB and then recreate them. From there the python application will execute the ETL pipeline on the data in the data directory. 
 
+#### Caveats With Current Approach
+
+The majority of the songs played by users are missing from the songplay json files. 
+
+As a result joining the song table on the song featured in the song table from the songplay dataset produces very few results. 
+
+To resolve this the following actions could be required:
+
+* Gather an extensive dataset of songs and artists so songs played by users can be joined with this dataset
+* Table denormalization. Accept that the song and artist dataset is incomplete and insert the song and artist name directly into the table
+
+Table denormalization would be the easiest and most straightforward approach and would also reduce query complexity. 
+
 #### Additional Steps
 
 * Performance testing with further denormalized tables, ideally with a bigger dataset or in an environment with low ram to identify bottlenecks
