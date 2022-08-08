@@ -1,7 +1,8 @@
 ### SPARKIFY ETL 
 #### Pipeline to load json data into a PSQL DB for further analysis
+## Demo
 
-#### Project Overview
+#### Overview
 
 Music company sparkify generate JSON logs that cover how songs are played in their app. This dataset is joined with an open source songs and artist JSON collection so data analysts can identify trends in song plays.
 
